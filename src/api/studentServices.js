@@ -7,13 +7,17 @@ export const studentServices = {
   get: (id) => {
     return axiosClient.get(`/students/${id}`);
   },
-  update: (id) => {
-    return axiosClient.patch(`/students/${id}`);
+  update: (id, data) => {
+    return axiosClient.patch(
+      `/students/${id}`,
+      { ...data }
+    );
   },
   create: (data) => {
-    return axiosClient.post("/students", {
-      ...data,
-    });
+    return axiosClient.post(
+      "/students",
+      { ...data }
+    );
   },
   delete: (id) => {
     return axiosClient.delete(`/students/${id}`);
